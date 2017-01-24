@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-//Ввод 10 чисел с клавиатуры. Найти Минимальное и Максимальное
+// Ввод 10 чисел с клавиатуры. Найти Минимальное и Максимальное
 
 public class Task2 {
     public static void main(String args[]) throws IOException {
