@@ -2,8 +2,8 @@
 
 public class Task1 {
 
-    public static void main(String args[]) {
-        int month = 1;
+     public static void main(String args[]) {
+        int month = 11;
         switch (month) {
             case 1:
             case 2:
@@ -20,8 +20,13 @@ public class Task1 {
             case 8:
                 System.out.println("Лето");
                 break;
-            default:
+            case 9:
+            case 10:
+            case 11:
                 System.out.println("Осень");
+                break;
+            default:
+                System.out.println("Введите число от 1 до 12");
                 break;
         }
     }
