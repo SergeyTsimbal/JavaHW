@@ -2,7 +2,7 @@
 public class Task4 {
     public static void main(String args[])  {
 
-        int mas [] = {955, 2, 43, 67, 54, 475, 234, 23, 265, 87, 4};
+        int mas [] = {8, 2, 43, 67, 54, 475, 234, 23, 265, 87, 4};
 
 //Прямая
         for (int i = 0; i < mas.length; i++) {
