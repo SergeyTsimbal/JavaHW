@@ -13,8 +13,8 @@ public class USDRate {
 
 		while ((s = dis.readLine()) != null) {
 		if (f == 186) {
-			int f = s.indexOf("<span class=");
-			String t = s.substring(f + 36, s.length());
+			int f = s.indexOf("<span>");
+			String t = s.substring(f + 6, s.length());
 				int b = t.indexOf("</span>");
 				String USD = t.substring(0, b);
 				System.out.println("Курс доллара НБУ на сегодня = " + USD);
