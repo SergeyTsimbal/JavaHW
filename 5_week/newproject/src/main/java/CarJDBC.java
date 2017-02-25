@@ -14,7 +14,7 @@ public class CarJDBC {
         System.out.println(getEngineById(1).toString());
     }
 
-    private static void run() throws SQLException {
+    private static void JDBCConnect() throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(
@@ -30,21 +30,21 @@ public class CarJDBC {
     }
 
     static void insertCar(Car car) throws SQLException {
-        run();
+        JDBCConnect();
         String sql = "INSERT INTO car VALUES('" + car.getId() + "','"
                 + car.getModel() + "','" + car.getMake() + "', '" + car.getId() + "', '" + car.getPrice() + "')";
         st.execute(sql);
     }
 
     static void insertEngine(Engine engine) throws SQLException {
-        run();
+        JDBCConnect();
         String sql = "INSERT INTO engine VALUES('" + engine.getId() + "','"
                 + engine.getDisplacement() + "','" + engine.getPower() + "')";
         st.execute(sql);
     }
 
     static Car getCarById(int id) throws SQLException {
-        run();
+        JDBCConnect();
         ResultSet rs = st.executeQuery("SELECT * FROM car WHERE id = '" + id + "'");
         while (rs.next()) {
             Car car = new Car(rs.getInt("id"), rs.getString("model"),
@@ -55,7 +55,7 @@ public class CarJDBC {
     }
 
     static Engine getEngineById(int id) throws SQLException {
-        run();
+        JDBCConnect();
         ResultSet rs = st.executeQuery("SELECT * FROM engine WHERE id = '" + id + "'");
         while (rs.next()) {
             Engine engine = new Engine(rs.getInt("id"), rs.getInt("displacement"),
@@ -66,12 +66,12 @@ public class CarJDBC {
     }
 
     static void deleteCar(int id) throws SQLException {
-        run();
+        JDBCConnect();
         st.execute("DELETE FROM car WHERE id = '" + id + "'");
     }
 
     static void deleteEngine(int id) throws SQLException {
-        run();
+        JDBCConnect();
         st.execute("DELETE FROM engine WHERE id = '" + id + "'");
     }
 }
