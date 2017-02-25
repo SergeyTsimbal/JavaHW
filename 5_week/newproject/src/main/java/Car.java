@@ -9,6 +9,7 @@ class Car {
         return id;
     }
 
+
     public String getModel() {
         return model;
     }
@@ -16,6 +17,7 @@ class Car {
     public String getMake() {
         return make;
     }
+
 
     public int getPrice() {
         return price;
