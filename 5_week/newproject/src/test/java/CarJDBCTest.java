@@ -15,6 +15,7 @@ public class CarJDBCTest {
         Assert.assertTrue(car.getMake().equals(testcar.getMake()) && car.getId() == testcar.getId());
         carJDBC.deleteCar(car.getId());
     }
+
     @Test
     public void getEngineById() throws SQLException {
         CarJDBC carJDBC = new CarJDBC();
