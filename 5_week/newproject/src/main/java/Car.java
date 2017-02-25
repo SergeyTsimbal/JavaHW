@@ -14,7 +14,6 @@ class Car {
         return model;
     }
 
-
     public String getMake() {
         return make;
     }

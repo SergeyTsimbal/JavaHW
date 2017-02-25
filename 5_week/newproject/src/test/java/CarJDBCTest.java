@@ -1,49 +1,27 @@
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
+
+import java.sql.SQLException;
 
 
 public class CarJDBCTest {
 
-    static Car car;
-    static Engine engine;
-    CarJDBC carJDBC;
-
-    @Before
-    public void run() {
-        carJDBC = new CarJDBC();
-    }
-
-
-    @Test()
-    public void insertCar() throws Exception {
-        car = new Car(1, "RS-7", "Audi", 4);
-        String sql = "INSERT INTO car VALUES('" + car.getId() + "','"
-                + car.getModel() + "','" +  car.getMake() + "', '" +car.getId() + "', '" + car.getPrice() + "')";
-        String s = carJDBC.insertCar(car);
-        Assert.assertTrue(s.equals(sql));
-    }
-
     @Test
-    public void insertEngine() throws Exception {
-        engine = new Engine(4, 2800, 500);
-        String sql = "INSERT INTO engine VALUES('" + engine.getId() + "','"
-                + engine.getDisplacement() + "','" + engine.getPower() + "')";
-        String s = carJDBC.insertEngine(engine);
-        Assert.assertTrue(s.equals(sql));
+    public void getCarById() throws SQLException {
+        CarJDBC carJDBC = new CarJDBC();
+        Car testcar = new Car(26, "Test", "Test", 26);
+        carJDBC.insertCar(testcar);
+        Car car = carJDBC.getCarById(testcar.getId());
+        Assert.assertTrue(car.getMake().equals(testcar.getMake()) && car.getId() == testcar.getId());
+        carJDBC.deleteCar(car.getId());
     }
-
     @Test
-    public void getCarById() throws Exception {
-        Assert.assertEquals(car.getId(), 1);
+    public void getEngineById() throws SQLException {
+        CarJDBC carJDBC = new CarJDBC();
+        Engine testengine = new Engine(4, 2800, 500);
+        carJDBC.insertEngine(testengine);
+        Engine engine = carJDBC.getEngineById(testengine.getId());
+        Assert.assertTrue(engine.getPower() == (testengine.getPower()) && engine.getId() == testengine.getId());
+        carJDBC.deleteEngine(engine.getId());
     }
-
-
-    @Test
-    public void getEngineById() throws Exception {
-        Assert.assertEquals(engine.getId(), 4);
-
-    }
-
-
 }
