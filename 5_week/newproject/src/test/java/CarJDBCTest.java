@@ -8,21 +8,19 @@ public class CarJDBCTest {
 
     @Test
     public void getCarById() throws SQLException {
-        CarJDBC carJDBC = new CarJDBC();
-        Car testcar = new Car(26, "Test", "Test", 26);
-        carJDBC.insertCar(testcar);
-        Car car = carJDBC.getCarById(testcar.getId());
+        Car testcar = new Car(4, "Ford", "Test", 150000);
+        CarJDBC.insertCar(testcar);
+        Car car = CarJDBC.getCarById(testcar.getId());
         Assert.assertTrue(car.getMake().equals(testcar.getMake()) && car.getId() == testcar.getId());
-        carJDBC.deleteCar(car.getId());
+        CarJDBC.deleteCar(car.getId());
     }
 
     @Test
     public void getEngineById() throws SQLException {
-        CarJDBC carJDBC = new CarJDBC();
-        Engine testengine = new Engine(4, 2800, 500);
-        carJDBC.insertEngine(testengine);
-        Engine engine = carJDBC.getEngineById(testengine.getId());
+        Engine testengine = new Engine(6, 2800, 500);
+        CarJDBC.insertEngine(testengine);
+        Engine engine = CarJDBC.getEngineById(testengine.getId());
         Assert.assertTrue(engine.getPower() == (testengine.getPower()) && engine.getId() == testengine.getId());
-        carJDBC.deleteEngine(engine.getId());
+        CarJDBC.deleteEngine(engine.getId());
     }
 }

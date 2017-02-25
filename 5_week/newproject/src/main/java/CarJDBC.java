@@ -6,15 +6,15 @@ public class CarJDBC {
 
 
     public static void main(String args[]) throws Exception {
-        Engine engine = new Engine(3, 3500, 600);
-        Car car = new Car(3, "RS-7", "Audi", 140000, engine);
+        Engine engine = new Engine(1, 3500, 600);
+        Car car = new Car(1, "RS-7", "Audi", 140000, engine);
         insertCar(car);
         insertEngine(engine);
-        System.out.println(getCarById(2).toString());
-        System.out.println(getEngineById(2).toString());
+        System.out.println(getCarById(1).toString());
+        System.out.println(getEngineById(1).toString());
     }
 
-    private static void run() {
+    private static void run() throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(
