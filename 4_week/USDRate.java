@@ -12,7 +12,7 @@ public class USDRate {
 		DataInputStream dis = new DataInputStream(new BufferedInputStream(is));
 
 		while ((s = dis.readLine()) != null) {
-		if (f == 186) {
+		if (f == 185) {
 			int f = s.indexOf("<span>");
 			String t = s.substring(f + 6, s.length());
 				int b = t.indexOf("</span>");
