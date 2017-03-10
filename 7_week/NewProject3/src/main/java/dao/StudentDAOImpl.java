@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
-    static boolean f = false;
+    private static boolean f;
+
     public static boolean isF() {
         return f;
     }
